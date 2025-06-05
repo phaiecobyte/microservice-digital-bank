@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Set variables
+TAG=$(date +%Y%m%d%H%M%S)
+IMAGE_NAME="digital-bank/customer-service:$TAG"
+
+# Build the project
+./mvnw clean package -DskipTests
+
+# Build Docker image
+docker build -t $IMAGE_NAME .
+
+# Tag as latest
+docker tag $IMAGE_NAME digital-bank/customer-service:latest
+
+# Optional: Push to registry
+# docker push $IMAGE_NAME
+# docker push digital-bank/customer-service:latest
+
+echo "Built and tagged: $IMAGE_NAME"
+echo "To run locally: docker-compose up -d"
+echo "To deploy to production: TAG=$TAG docker-compose -f docker-compose.prod.yaml up -d".git
+.gitignore
+.github
+.idea
+target
+!target/*.jar
+README.md
+HELP.md
+*.iml
+*.iws
+*.ipr
+.settings
+.project
+.classpath
+.factorypath
+uploads/
