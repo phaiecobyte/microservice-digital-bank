@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "193b81dd-e153-4f9e-b1d7-038f08bdcfa5",
+		"name": "Microservice: Digital Bank",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" width=\"2162\" height=\"1530\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28607692"
+	},
+	"item": [
+		{
+			"name": "Customer Service",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9000/api/customer/list?page=0&size=10&sort=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "sort",
+									"value": ""
+								}
+							]
+						},
+						"description": "Generated from cURL: curl -X 'GET' \\\r\n  'http://localhost:9000/api/customer/list?page=0&size=10&sort=' \\\r\n  -H 'accept: */*'"
+					},
+					"response": []
+				},
+				{
+					"name": "get by customerid",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9000/api/customer/CUST-B2AE2D2C",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"CUST-B2AE2D2C"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'GET' \\\r\n  'http://localhost:9000/api/customer/CUST-B2AE2D2C' \\\r\n  -H 'accept: */*'"
+					},
+					"response": []
+				},
+				{
+					"name": "get identity cards by customer",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9000/api/customer/{id}/identity-cards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"{id}",
+								"identity-cards"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'GET' \\\r\n  'http://localhost:9000/api/customer/CUST-B2AE2D2C/identity-cards' \\\r\n  -H 'accept: */*'"
+					},
+					"response": []
+				},
+				{
+					"name": "register customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"customerId\": \"\",\r\n  \"phone\": \"0965799629\",\r\n  \"email\": \"phai68@gmail.com\",\r\n  \"maritalStatus\": \"single\",\r\n  \"imgUrl\": \"\",\r\n  \"referralCode\": \"\",\r\n  \"sourceIncome\": \"employee\",\r\n  \"monthlyIncome\": \"400-800\",\r\n  \"fieldOfWork\": \"Technology\",\r\n  \"occupation\": \"Java Learner\",\r\n  \"purpose\": \"saving\",\r\n  \"identityCard\": {\r\n    \"idType\": \"National ID Card\",\r\n    \"idNumber\": \"023872349453\",\r\n    \"expiryDate\": \"2035-05-16\",\r\n    \"surNameKh\": \"ផល\",\r\n    \"givenNameKh\": \"ផៃ\",\r\n    \"sureNameEn\": \"Phal\",\r\n    \"givenNameEn\": \"Phai\",\r\n    \"gender\": \"Male\",\r\n    \"nationality\": \"Khmer\",\r\n    \"documentUrl\": \"string\"\r\n  },\r\n  \"address\": {\r\n    \"postalCode\": \"\",\r\n    \"village\": \"Phnom Penh Thmey\",\r\n    \"commune\": \"Phnom Penh Thmey\",\r\n    \"district\": \"Sen Sok\",\r\n    \"province\": \"Phnom Penh\",\r\n    \"country\": \"Cambodia\",\r\n    \"description\":\"\"\r\n  },\r\n  \"placeOfBirth\": {\r\n    \"village\": \"Tapoy\",\r\n    \"commune\": \"Sambo\",\r\n    \"district\": \"Bathey\",\r\n    \"province\": \"Kompong Cham\",\r\n    \"country\": \"Cambodia\",\r\n    \"description\":\"\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/customer/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"register"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'POST' \\\r\n  'http://localhost:9000/api/customer/register' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"id\": 0,\r\n  \"customerId\": \"\",\r\n  \"phone\": \"0965799628\",\r\n  \"email\": \"phai@gmail.com\",\r\n  \"maritalStatus\": \"single\",\r\n  \"imgUrl\": \"\",\r\n  \"referralCode\": \"\",\r\n  \"sourceIncome\": \"employee\",\r\n  \"monthlyIncome\": \"400-800\",\r\n  \"fieldOfWork\": \"Technology\",\r\n  \"occupation\": \"Java Learner\",\r\n  \"purpose\": \"saving\",\r\n  \"identityCard\": {\r\n    \"idType\": \"National ID Card\",\r\n    \"idNumber\": \"023872349459\",\r\n    \"expiryDate\": \"2035-05-16\",\r\n    \"surNameKh\": \"ផល\",\r\n    \"givenNameKh\": \"ផៃ\",\r\n    \"sureNameEn\": \"Phal\",\r\n    \"givenNameEn\": \"Phai\",\r\n    \"gender\": \"Male\",\r\n    \"nationality\": \"Khmer\",\r\n    \"documentUrl\": \"string\"\r\n  },\r\n  \"address\": {\r\n    \"postalCode\": \"\",\r\n    \"village\": \"Phnom Penh Thmey\",\r\n    \"commune\": \"Phnom Penh Thmey\",\r\n    \"district\": \"Sen Sok\",\r\n    \"province\": \"Phnom Penh\",\r\n    \"country\": \"Cambodia\"\r\n  },\r\n  \"placeOfBirth\": {\r\n    \"address\": \"\",\r\n    \"village\": \"Tapoy\",\r\n    \"commune\": \"Sambo\",\r\n    \"district\": \"Bathey\",\r\n    \"province\": \"Kompong Cham\",\r\n    \"country\": \"Cambodia\"\r\n  }\r\n}'"
+					},
+					"response": []
+				},
+				{
+					"name": "change profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"contentType": "image/jpeg",
+									"type": "file",
+									"src": "/C:/Users/LENOVO/OneDrive/Pictures/photo_2025-02-13_19-30-06.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/customer/CUST-60D58771/profile-photo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"CUST-60D58771",
+								"profile-photo"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'POST' \\\r\n  'http://localhost:9000/api/customer/CUST-B2AE2D2C/profile-photo' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: multipart/form-data' \\\r\n  -F 'photo=@photo_2025-02-13_19-30-06.jpg;type=image/jpeg'"
+					},
+					"response": []
+				},
+				{
+					"name": "renew expired identity card",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \r\n    \"idType\": \"Passport\",\r\n    \"idNumber\": \"023872349453\",\r\n    \"expiryDate\": \"2030-05-16\",\r\n    \"surNameKh\": \"ផល\",\r\n    \"givenNameKh\": \"ផៃ\",\r\n    \"sureNameEn\": \"Phal\",\r\n    \"givenNameEn\": \"Phai\",\r\n    \"gender\": \"Male\",\r\n    \"nationality\": \"Khmer\",\r\n    \"documentUrl\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/customer/CUST-B2AE2D2C/identity-card",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"customer",
+								"CUST-B2AE2D2C",
+								"identity-card"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'PUT' \\\r\n  'http://localhost:9000/api/customer/CUST-B2AE2D2C/identity-card' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n      \r\n    \"idType\": \"Passport\",\r\n    \"idNumber\": \"023872349453\",\r\n    \"expiryDate\": \"2030-05-16\",\r\n    \"surNameKh\": \"ផល\",\r\n    \"givenNameKh\": \"ផៃ\",\r\n    \"sureNameEn\": \"Phal\",\r\n    \"givenNameEn\": \"Phai\",\r\n    \"gender\": \"Male\",\r\n    \"nationality\": \"Khmer\",\r\n    \"documentUrl\": \"string\"\r\n}'"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "http://localhost:9000/api"
+		}
+	]
+}
